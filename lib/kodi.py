@@ -245,6 +245,19 @@ def get_keyboard(heading, default=''):
     else:
         return None
 
+def ulib(string, enc=False):
+    try:
+        if enc: string = urllib.quote(string)
+        else: string = urllib.unquote(string)
+        return string
+    except: return string
+
+def unicodeEscape(string):
+    try:
+        string = string.decode("unicode-escape")
+        return string
+    except: return string
+
 def sortX(string):
     try:
         string = re.sub(r'<.+?>','',string)

@@ -235,8 +235,9 @@ def refresh_container():
 def update_container(url):
     xbmc.executebuiltin('Container.Update(%s)' % (url))
     
-def get_keyboard(heading, default=''):
+def get_keyboard(heading, default='', hidden=False):
     keyboard = xbmc.Keyboard()
+    if hidden: keyboard.setHiddenInput(True)
     keyboard.setHeading(heading)
     if default: keyboard.setDefault(default)
     keyboard.doModal()
